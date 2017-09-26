@@ -24,7 +24,7 @@ module.exports = {
             use: ['style-loader', 'css-loader', 'sass-loader']
         }]
     },
-    Plugins: [
+    plugins: [
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 3000,
