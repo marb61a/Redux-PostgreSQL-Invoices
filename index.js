@@ -1,2 +1,1 @@
-// import './app/client'
-alert("hello world");
+import './app/client';
