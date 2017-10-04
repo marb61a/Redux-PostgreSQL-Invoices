@@ -4,7 +4,8 @@
   "description": "A sample app with redux and postgres",
   "main": "index.js",
   "scripts": {
-    "server":"babel-node app/server.js --presets es2015,react,stage-2",
+    "server":"yarn run build-client && babel-node app/server.js --presets es2015,react,stage-2",
+    "build-client": "webpack --config ./webpack.config.ssr.js",
     "start": "webpack-dev-server --progress --colors -w"  
   },
   "repository": "",
