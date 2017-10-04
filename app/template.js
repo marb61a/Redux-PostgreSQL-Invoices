@@ -1,4 +1,4 @@
-export default `
+export default html => `
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +8,7 @@ export default `
         <link rel="stylesheet" href="/assets/app.css">
     </head>
     <div id="app">
-        Hello World
+        ${htnl}
     </div>
 </html>
 `;

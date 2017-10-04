@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import RGB from './RGB.jsx';
+import RGB from './universal/RGB.jsx';
+import './app.scss';
 
 render(
-    // <h1>Hello World</h1>,
     <RGB />,
     document.getElementById('app')
 );
