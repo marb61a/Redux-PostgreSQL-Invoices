@@ -8,7 +8,7 @@ export const adapter = axios.create({
     headers: {
         Accept: 'application/json'
     }
-})
+});
 
 adapter.interceptors.response.use(undefined, error => {
     if(error.response.status === 403){
@@ -18,16 +18,28 @@ adapter.interceptors.response.use(undefined, error => {
     }
     
     return Promise.reject(error);
-})
+});
 
 export default {
     session: {
-        
+        login: (username, password) => adapter.post('/session', {username, password}).then((resp) => {
+            window.localStorage.setItem('user', JSON.stringify(resp.data.user));
+            return resp;
+        }),
+        logout: () => adapter.delete('/session').then((resp) => {
+            window.localStorage.removeItem('user');
+            return resp;
+        })
     },
     customers: {
-        
+        list: (page, pageSize) => adapter.get('/customers', {
+            params: {page, pageSize}
+        }),
+        create: customer => adapter.post('/customers', { customer })
     }, 
     invoices: {
-        
+        list: (page, pageSize) => adapter.get('/invoices', {
+            params: {page, pageSize}
+        })    
     }
 };
