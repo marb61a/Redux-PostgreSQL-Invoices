@@ -13,4 +13,19 @@ describe('paginate()', () => {
         });
     });
     
+    describe('PREV', () => {
+        context('when on the first page', () => {
+            it('remains on the first page', () => {
+                expect(reducer(initialState, previous())).toEqual(initialState);
+            });
+        });    
+    });
+    
+    describe('when on the second page', () => {
+        const state = { ...initialState, page: 2 };
+        
+        it('decrements the page', () => {
+            expect(reducer(state, previous())).toEqual(initialState);
+        });
+    });
 });
