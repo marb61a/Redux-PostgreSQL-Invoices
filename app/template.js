@@ -1,4 +1,4 @@
-export default html => `
+export default (html, state) => `
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,9 +6,16 @@ export default html => `
         <title>React PostgreSQL aop</title>
         <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="/assets/app.css">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
     </head>
-    <div id="app">
-        ${htnl}
-    </div>
+    <body>
+        <div id="app">
+            ${html}
+        </div>
+    </body>
+    <script>
+        window.__PRELOADED_STATE__ = ${JSON.stringify(state)}
+    </script>
+    <script src="/assets/bundle.js"></script>
 </html>
 `;

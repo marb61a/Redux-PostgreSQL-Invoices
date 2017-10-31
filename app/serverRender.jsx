@@ -1,11 +1,21 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { createStore } from 'redux';
+import createStore from './universal/createStore';
 import { Provider } from 'react-redux';
-import reducer from './reducer';
-import RGB from './universal/RGB';
+import { StaticRouter, matchPath } from 'react-router';
 import template from './template';
-import  { updateColor } from './universal/actions';
+import App from './universal/App';
+import { setUser } from './universal/session/actions';
+
+import actions from './universal/shared/pagination/actions';
+import * as customersService from './server/services/customers';
+import * as invoicesService from './server/services/invoices';
+
+function preloadedRoutes(store, req){
+    const loadPage = (listId, service) => {
+        const { resultsUpdated, setPage } = actions(listId);    
+    };    
+}
 
 export default function render(req, res){
     const store = createStore(reducer);
