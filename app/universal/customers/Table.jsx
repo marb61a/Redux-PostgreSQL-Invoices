@@ -4,8 +4,21 @@ import { tabulate } from '../shared/pagination';
 
 export function Table({ results }){
     return(
-        <table>
-        
+        <table className="pure-table">
+            <thead>
+                <tr>
+                    <th>
+                        Email Address
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {results.map(r => (
+                    <tr key={r.id}>
+                        <td>{r.email}</td>
+                    </tr>
+                ))}
+            </tbody>
         </table>  
     );
 }

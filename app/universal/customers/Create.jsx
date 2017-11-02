@@ -38,3 +38,19 @@ export class Create extends Component{
         );
     }
 }
+
+export default connect(
+    undefined,
+    { onSubmit: actions.create }
+)(reduxForm({
+    form: 'createCustomer',
+    validate: values => {
+        const errors = {};
+        
+        if(!email.validate(values.email)){
+            errors.email = "Not Valid";
+        }
+        
+        return errors;
+    }
+})(Create));
