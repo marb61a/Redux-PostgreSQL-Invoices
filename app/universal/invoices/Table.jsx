@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import * as actions from './actions';
-import { tabulate } from '../shared/pagination';
+import { tabulate } from '../shared/pagination/tabulate';
 
 export function Table({ results }){
     return(

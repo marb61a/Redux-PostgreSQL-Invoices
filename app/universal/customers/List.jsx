@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Table from './Table';
-import { Flipper } from '../shared/pagination';
+import { Flipper } from '../shared/pagination/Flipper';
 
 export default function List(){
     return(

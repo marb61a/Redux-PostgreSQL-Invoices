@@ -1,6 +1,6 @@
-import { SubmissionError } from 'redux-form'
-import api from '../api'
-import actions from '../shared/pagination/actions'
+import { SubmissionError } from 'redux-form';
+import api from '../api';
+import actions from '../shared/pagination/actions.js';
 
 export const { resultsUpdated, setPage } = actions('customers');
 
