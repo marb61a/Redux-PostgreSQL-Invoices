@@ -30,7 +30,27 @@ export class Login extends Component{
     }
     
     render(){
+        if(this.state.success){
+            return <Redirect to={{ pathname: '/' }} />;
+        }    
         
+        return(
+            <form className="pure-form pure-form-stacked" onSubmit={this.onSubmit}>
+                <fieldset>
+                    <legend>Sign in</legend>
+                    {this.state.invalid && (
+                        <div style={{ height: '2rem', color: 'red' }}>
+                            Invalid Credentials
+                        </div>
+                    )}
+                    
+                    <input type="text" placeholder="Username" onChange={this.update('username')} />
+                    <input type="password" placeholder="Password" onChange={this.update('password')} />
+                    
+                    <button type="submit" className="pure-button pure-button-primary">Sign in</button>
+                </fieldset>
+            </form>    
+        );
     }
 } 
 
